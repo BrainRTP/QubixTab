@@ -14,6 +14,8 @@ public final class Main extends JavaPlugin {
         main = this;
         new Tab(this);
         new AnimatedScoreBoard();
+
+        //
         new Chat(this);
     }
 
