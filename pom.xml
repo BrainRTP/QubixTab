@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.brainrtp</groupId>
-    <artifactId>Tab</artifactId>
-    <version>1.0</version>
+    <artifactId>QubixCore</artifactId>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
-    <name>Tab</name>
+    <name>QubixCore</name>
 
-    <description>Plguin for Tab</description>
+    <description>Plugin for Qubix Server</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
