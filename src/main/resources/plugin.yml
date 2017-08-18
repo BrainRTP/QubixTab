@@ -1,4 +1,4 @@
-name: Qubix
+name: QubixCore
 version: ${project.version}
 main: ru.brainrtp.core.Main
 authors: [BrainRTP, nVinz]
