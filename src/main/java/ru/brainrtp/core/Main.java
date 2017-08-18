@@ -19,6 +19,7 @@ public final class Main extends JavaPlugin {
         new Chat(this);
     }
     //pkoijhkbgasd
+    //AOSDIUGASIOFGVASOIDUF
 
     public String format(String string){
         return ChatColor.translateAlternateColorCodes('&', string);
