@@ -1,5 +1,5 @@
-name: Core
+name: Qubix
 version: ${project.version}
 main: ru.brainrtp.core.Main
-authors: [BrainRTP]
-description: Plguin for Tab
+authors: [BrainRTP, nVinz]
+description: Plguin for Qubix Server
