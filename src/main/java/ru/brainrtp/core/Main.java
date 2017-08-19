@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public final class Main extends JavaPlugin {
 
     // | CONSTS | ///////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    // Добавляем префикс, чтобы его потом дергать отсюда, а не писать его постоянно.
     private static String prefix = "§c[§fQubixCore§c] §7> §r";
     public static Main main;
     private PluginDescriptionFile pdfFile = this.getDescription();
