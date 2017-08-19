@@ -1,0 +1,5 @@
+Header: "Привет, %player%!\nЛиняя 2\nЛиняя 3"
+Footer: "Hello, %player%!\nЛиняя2\nЛиняя3"
+TabNick:
+  default: "&7Игрок <name>"
+  admin: "&cАдмин &f<name>"

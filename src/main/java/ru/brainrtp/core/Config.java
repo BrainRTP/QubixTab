@@ -21,16 +21,14 @@ public class Config {
 
         if (!configf.exists()) {
             configf.getParentFile().mkdirs();
-            main.getLogger().info("config.yml not found, creating!");
+            main.getLogger().info("config.yml не найден, создаю!!");
             main.saveResource("config.yml", false);
         }
 
         config = new YamlConfiguration();
         try {
             config.load(configf);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InvalidConfigurationException e) {
+        } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
     }

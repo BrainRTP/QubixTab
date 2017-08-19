@@ -2,4 +2,9 @@ name: QubixCore
 version: ${project.version}
 main: ru.brainrtp.core.Main
 authors: [BrainRTP, nVinz]
+depend: [LuckPerms]
 description: Plguin for Qubix Server
+commands:
+    qubixcore:
+    qubix:
+    qq:
