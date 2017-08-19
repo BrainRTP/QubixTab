@@ -25,8 +25,8 @@ public final class Tab{
                 if (team == null){
                     team = scoreboard.registerNewTeam("team");
                 }
-                team.setPrefix(format("&eЕбалан &c"));
-                team.setSuffix(format("&bПидор"));
+                team.setPrefix(format("&7"));
+                team.setSuffix(format("&7"));
 
                 for (Player player : main.getServer().getOnlinePlayers()){
                     team.addEntry(player.getName());
