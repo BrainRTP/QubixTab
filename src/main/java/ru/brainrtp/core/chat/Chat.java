@@ -27,6 +27,9 @@ public class Chat implements Listener{
             String input = Config.getConfig().getConfigurationSection("TabNick").getString("default").replace('&', '§');
             prefixSuffix = input.split("<name>");
         }
-        event.setFormat("[" + prefixSuffix[0].replace(" ", "") + "§f] " + ((prefixSuffix[0].split(" ").length == 2) ?  prefixSuffix[0].split(" ")[1] : "§7")  + event.getPlayer().getName() + ((prefixSuffix.length > 1) ? prefixSuffix[1] : "") + " §f> " + event.getMessage());
+        event.setFormat("[" + prefixSuffix[0].replace(" ", "") + "§f] " +
+                ((prefixSuffix[0].split(" ").length == 2) ?  prefixSuffix[0].split(" ")[1] : "§7")
+                + event.getPlayer().getName()
+                + ((prefixSuffix.length > 1) ? prefixSuffix[1] : "") + " §f> " + event.getMessage());
     }
 }

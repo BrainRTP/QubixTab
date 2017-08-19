@@ -25,6 +25,7 @@ public class Tab implements Listener {
     private Team team;
 
     public Tab(){
+        //Т.к не динамический TAB, то присваиваем сразу значения, которые берем из конфига
         this.footer = Config.getConfig().getString("Footer");
         this.header = Config.getConfig().getString("Header");
 //        this.prefix = Config.getConfig().getString("Prefix");
@@ -37,6 +38,7 @@ public class Tab implements Listener {
     private void setSuffixPrefix() {
         Scoreboard scoreboard = Main.getPlugin(Main.class).getServer().getScoreboardManager().getMainScoreboard();
 
+        //Создание тим
         team = scoreboard.getTeam("default");
         if (team == null) {
             team = scoreboard.registerNewTeam("default");
@@ -48,12 +50,20 @@ public class Tab implements Listener {
 
         for (Player player : Main.getPlugin(Main.class).getServer().getOnlinePlayers()) {
             if (Main.isPlayerInGroup(player, "admin")){
+                //"Выбираем" тиму, которую нужно редактировать
                 team = scoreboard.getTeam("admin");
 
+                //Берез из конфига TabNick -> admin
                 String input = format(Config.getConfig().getConfigurationSection("TabNick").getString("admin"));
+                //Разделяем него по "<name>", чтобы prefixSuffix был такого типа:
+                // [0] - префикс
+                // [1] - суффикс
                 final String[] prefixSuffix = input.split("<name>");
 
-                team.setPrefix(format(prefixSuffix[0]));
+                //Есть admin: "&cАдмин &f<name>"
+                //prefixSuddix[0] = "&cАдмин "
+                //Разделяем на пробел и получаем префик без пробела, то бишь "&cАдмин" (чтобы сэкономить один символ)
+                team.setPrefix(format(prefixSuffix[0].split(" ")[0]));
                 team.setSuffix(format((prefixSuffix.length > 1) ? prefixSuffix[1] : ""));
             } else {
                 team = scoreboard.getTeam("default");
@@ -65,12 +75,14 @@ public class Tab implements Listener {
                 team.setSuffix(format((prefixSuffix.length > 1) ? prefixSuffix[1] : ""));
 
             }
+            //Добавляем в тиму игрока
             team.addEntry(player.getName());
         }
     }
     private void setHeaderFooter() {
         for (Player player : Main.getPlugin(Main.class).getServer().getOnlinePlayers()) {
             try {
+                //Вывод хедера/футера с плейсхолдером %player%
                 Object tabHeader = BukkitTool.getNMSClass("IChatBaseComponent").getDeclaredClasses()[0].getMethod("a", String.class).invoke(null,
                         "{\"text\":\"" + format(header).replace("%player%", player.getName()) + "\"}");
                 Object tabFooter = BukkitTool.getNMSClass("IChatBaseComponent").getDeclaredClasses()[0].getMethod("a", String.class).invoke(null,
@@ -98,6 +110,7 @@ public class Tab implements Listener {
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event){
+        //Чтобы не забивать память, удаляем игрока из тимы при его выходе
         team.removeEntry(event.getPlayer().getName());
     }
 
